@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <p><%= link_to '< Back', restaurants_path, class: 'btn-light' %></p>
+  <div class="card-product">
+    <%= image_tag "http://source.unsplash.com/featured/?#{@restaurant.name}&#{rand(1000)}"%>
+    <div class="card-product-infos">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.category %></p>
+    </div>
+  </div>
+  <p><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+  <div class="d-flex">
+    <% review.rating.times do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  </div>
+    <li class="list-group-item my-3"><%= review.content %></li>
+  <% end %>
+  </ul>
+
+
+</div>

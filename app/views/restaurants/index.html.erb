@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="navbar-lewagon">
+    <h1>All restaurants</h1>
+
+    <%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-primary" %>
+
+
+  </div>
+  <div class="cards">
+    <% @restaurants.each do |restaurant| %>
+      <%= render 'restaurants/card', restaurant: restaurant %>
+    <% end %>
+  </div>
+</div>
